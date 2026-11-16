@@ -1,0 +1,49 @@
+name: Refresh contribution card cache
+
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-card:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Refresh GitShine image URL
+        run: |
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from pathlib import Path
+          import re
+
+          readme = Path("README.md")
+          content = readme.read_text(encoding="utf-8")
+          stamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
+
+          pattern = r"https://gitshine\\.com/card/chaos454(?:\\?v=[^ )\\]]*)?"
+          replacement = f"https://gitshine.com/card/chaos454?v={stamp}"
+          updated, count = re.subn(pattern, replacement, content, count=1)
+
+          if count != 1:
+              raise SystemExit("Could not find the GitShine contribution card URL in README.md")
+
+          readme.write_text(updated, encoding="utf-8")
+          PY
+
+      - name: Commit refreshed image URL
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "No README change needed."
+            exit 0
+          fi
+          git commit -m "chore: refresh contribution card cache"
+          git push
