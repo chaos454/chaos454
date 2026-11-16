@@ -64,7 +64,7 @@ fun_fact: "I animate websites for fun and debug them out of necessity."
 
 <div align="center">
 
-![GitHub Contributions](https://ghstats.dev/api/profile?username=chaos454&type=contributions&theme=github&style=github)
+[![GitHub Streak](https://streak-stats.demolab.com/?user=chaos454&theme=dark)](https://git.io/streak-stats)
 
 </div>
 
