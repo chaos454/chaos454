@@ -26,7 +26,7 @@ jobs:
           content = readme.read_text(encoding="utf-8")
           stamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
 
-          pattern = r"https://gitshine\\.com/card/chaos454(?:\\?v=[^ )\\]]*)?"
+          pattern = r"https://gitshine\.com/card/chaos454(?:\?v=[^ )]*)?"
           replacement = f"https://gitshine.com/card/chaos454?v={stamp}"
           updated, count = re.subn(pattern, replacement, content, count=1)
 
