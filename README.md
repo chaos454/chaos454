@@ -72,7 +72,7 @@ fun_fact: "I animate websites for fun and debug them out of necessity."
 
 <div align="center">
 
-[![GitHub Activity](https://gitshine.com/card/chaos454?theme=night)](https://gitshine.com/stats/chaos454)
+[![chaos454's GitHub stats](https://gitshine.com/card/chaos454?v=2)](https://gitshine.com/stats/chaos454)
 
 </div>
 
