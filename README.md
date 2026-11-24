@@ -56,7 +56,7 @@ fun_fact: "I animate websites for fun and debug them out of necessity."
 
 <div align="center">
 
-![GitHub Stats](https://ghstats.dev/api/card?username=chaos454&theme=midnight)
+![GitHub Stats](https://github-stats-extended.vercel.app/api?username=chaos454&show_icons=true&theme=dark&hide_border=true&include_all_commits=true)
 
 </div>
 
